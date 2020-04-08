@@ -1,0 +1,176 @@
+// ---VARIABLES---
+$blanco: white;
+
+// ---HERENCIA---
+@mixin flex{
+    display: flex;
+align-items: center;
+}
+
+@mixin flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin full-size{
+    height: 100px;
+    width: 100%;
+}
+
+@mixin anchor-clean{
+    color: $blanco;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+// ---STYLES---
+body {
+    margin: 0;
+    /* background-color: #8f57fd; */
+    font-family: 'Muli', sans-serif;
+}
+
+.header {
+    @include flex;
+    @include full-size;
+    background-color: #21C08B;
+    color: $blanco;
+    top: 0px;
+    justify-content: space-between;
+}
+
+.header__img {
+    width: 200px;
+    margin-left: 30px;
+}
+
+.login {
+    @include flex;
+    background: linear-gradient(#21C08B, #AB88FF );
+    padding: 0px, 30px;
+    min-height: calc(100vh - 200px);
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login__container{
+    @include flex-column;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px $blanco solid;
+    border-radius: 40px;
+    color: $blanco;
+    padding: 60px 68px 40px;
+    min-height: 700px;
+    width: 300px;
+    
+    justify-content: space-around;
+}
+
+.login__container--form{
+    @include flex-column;
+}
+
+.login__container--form label{
+    font-size: 14px;
+}
+
+.login__container--remember-me{
+    color: $blanco;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login__container--remember-me a {
+    @include anchor-clean;
+}
+
+
+.login__container--remember-me a:hover{ text-decoration: underline;}
+.login__container--register > a:hover{ text-decoration: underline; }
+.footer a:hover{ text-decoration: underline; }
+
+.login__container--social-media > div{
+    @include flex;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login__container--social-media > div > img{
+    width: 30px;
+    margin-right: 10px;
+}
+
+.login__container--register{
+    font-size: 14px;
+}
+
+.login__container--register > a{
+    @include anchor-clean;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+
+
+.input {
+    background-color: transparent;
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: solid $blanco;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+    outline: none;
+    padding: 0px 20px;
+    height: 50px;
+}
+
+::placeholder{
+    color: $blanco;
+}
+
+ .button{
+     background-color: rgba(255,255,255, 0.1);
+     border-radius: 25px;
+     color: $blanco;
+     cursor: pointer;
+     font-size: 16px;
+     border: none;
+     font-weight: bold;
+     font-family: 'Muli', sans-serif;
+     outline: none;
+     height: 50px;
+     letter-spacing: 1px;     
+     margin: 10px 0px;
+ }
+
+ .footer{
+    @include flex;
+    @include full-size;
+    background-color: #AB88FF;
+ }
+
+ .footer a{
+    @include anchor-clean;
+     cursor: pointer;
+     padding-left: 30px;
+ }
+
+
+ 
+ @media only screen and (max-width: 600px){
+     .login__container{
+        background-color: transparent;
+        border: none;
+        padding: 0%;
+        width: 92%;
+     }
+
+     .footer{
+         align-items: flex-start;
+         flex-direction: column;
+     }
+ }
